@@ -20,7 +20,6 @@
 <body>
 
     <main class="w-full h-full">
-        <h1>rorepoid</h1>
         @yield('content')
     </main>
 
