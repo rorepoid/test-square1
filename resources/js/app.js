@@ -1,5 +1,8 @@
 require('./bootstrap');
 
+// Alpine JS
+import "alpinejs";
+
 /**
  * Turbolinks
  */
