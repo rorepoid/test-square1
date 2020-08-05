@@ -13,7 +13,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <livewire:styles />
+    @stack('styles')
 </head>
 
 </head>
@@ -24,7 +24,7 @@
         @yield('content')
     </main>
 
-    <livewire:scripts />
+    @stack('scripts')
 
 </body>
 </html>

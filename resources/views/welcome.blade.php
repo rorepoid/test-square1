@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.livewire')
 
 @section('content')
 <h1>Welcome</h1>
