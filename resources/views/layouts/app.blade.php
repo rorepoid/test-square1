@@ -21,7 +21,9 @@
 </head>
 
 </head>
-<body>
+<body class="w-full h-screen">
+
+    <livewire:nav-bar />
 
     <main class="w-full h-full">
         @yield('content')
