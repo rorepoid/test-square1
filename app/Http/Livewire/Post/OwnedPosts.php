@@ -11,10 +11,16 @@ class OwnedPosts extends Component
 
     public function render()
     {
+        $this->getPosts();
         return view('livewire.post.owned-posts');
     }
 
     public function mount()
+    {
+        $this->getPosts();
+    }
+
+    public function getPosts()
     {
         $this->posts = auth()->user()
                             ->posts()
