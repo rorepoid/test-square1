@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['layout' => 'layouts.livewire', 'middleware' => 'guest'], function () {
+    Route::livewire('/login', 'login')->name('login');
+});
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
