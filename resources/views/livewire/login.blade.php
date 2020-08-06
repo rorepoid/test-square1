@@ -11,7 +11,7 @@
                     <form wire:submit.prevent="submit">
                         <div class="relative w-full mb-3">
                             <label class="block uppercase text-gray-700 text-xs font-bold mb-2 select-none" for="email">Email</label>
-                            <input type="email" wire:model="form.email"
+                            <input type="email" wire:model.lazy="form.email"
                                 class="shadow-md appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 id="email"
                                 placeholder="Email"
@@ -23,7 +23,7 @@
                         </div>
                         <div class="relative w-full mb-3">
                             <label class="block uppercase text-gray-700 text-xs font-bold mb-2 select-none mt-6" for="password">Password</label>
-                            <input type="password" wire:model="form.password"
+                            <input type="password" wire:model.lazy="form.password"
                                 class="shadow-md appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 id="password"
                                 placeholder="Password"
