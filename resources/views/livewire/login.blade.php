@@ -34,12 +34,12 @@
                             @enderror
                         </div>
                         <div class="text-center mt-6">
-                            <input
+                            <button
                                 class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
                                 type="submit"
                                 style="transition: all 0.15s ease 0s;"
-                                value="Sign In">
-                            </input>
+                                >Sign in
+                            </button>
                         </div>
                     </form>
                     <div class="flex flex-wrap mt-2">
