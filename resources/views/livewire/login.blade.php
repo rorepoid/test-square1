@@ -17,7 +17,7 @@
                                 placeholder="Email"
                                 required
                                 autofocus>
-                        @error('email')
+                        @error('form.email')
                             <span class="text-red-700">{{ $message }}</span>
                         @enderror
                         </div>
@@ -29,7 +29,7 @@
                                 placeholder="Password"
                                 required
                                 autofocus>
-                            @error('password')
+                            @error('form.password')
                                 <span class="text-red-700">{{ $message }}</span>
                             @enderror
                         </div>
