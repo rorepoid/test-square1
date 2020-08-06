@@ -18,6 +18,8 @@ Route::group(['layout' => 'layouts.livewire'], function () {
         Route::livewire('/login', 'login')->name('login');
         Route::livewire('/register', 'register')->name('register');
     });
+
+    Route::livewire('/posts/create', 'post.create-post');
 });
 
 Route::get('/', function () {
