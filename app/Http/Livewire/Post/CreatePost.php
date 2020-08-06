@@ -13,4 +13,14 @@ class CreatePost extends Component
     {
         return view('livewire.post.create-post');
     }
+
+    public function submit()
+    {
+        auth()->user()->posts()->create([
+            'title' => $this->title,
+            'body' => $this->body,
+        ]);
+
+        return redirect()->route('home');
+    }
 }
