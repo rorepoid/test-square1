@@ -20,6 +20,6 @@ class PostCard extends Component
 
     public function show()
     {
-        return redirect()->route('post.show', $this->post->id);
+        return redirect()->route('post.show', $this->post);
     }
 }
