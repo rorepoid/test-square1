@@ -1,13 +1,10 @@
-<div class="w-full h-full flex justify-center bg-gray-300 overflow-y-auto">
-    <div class="container w-full h-full bg-gray-400">
+<div class="w-full h-full flex justify-center overflow-y-auto">
+    <div class="container w-full h-full px-3 lg:px-8">
         <div class="flex justify-between m-8">
-            <h1 class="text-4xl font-bold font-mono">All Posts</h1>
-            <select wire:model="order_by" class="p-4 rounded-lg bg-gray-600 text-justify text-white font-bold" name="order_by">
-                <option value="desc">Newer</option>
-                <option value="asc">Older</option>
-            </select>
+            <h1 class="text-3xl xl:text-5xl font-bold">{{ $post->title }}</h1>
         </div>
-            <div class="flex justify-center flex-wrap">
+            <div class="flex justify-center flex-wrap px-3">
+                <p class="text-xl font-mono text-left">{{ $post->body }}</p>
             </div>
         </div>
     </div>

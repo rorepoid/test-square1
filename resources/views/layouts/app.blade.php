@@ -18,6 +18,11 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @stack('styles')
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
 </head>
 
 </head>
