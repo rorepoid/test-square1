@@ -22,7 +22,9 @@
                     required
                     autofocus
                     ></textarea>
-                <button class="mt-8 px-24 py-4 rounded-full bg-blue-700 text-white font-bold font-sans text-lg">Save Post</button>
+                <div class="w-full flex justify-center">
+                    <button class="mt-8 px-24 py-4 rounded-full bg-blue-700 text-white font-bold font-sans text-lg">Save Post</button>
+                </div>
             </form>
         </div>
     </div>
