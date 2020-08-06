@@ -19,9 +19,6 @@ Route::group(['layout' => 'layouts.livewire'], function () {
         Route::livewire('/register', 'register')->name('register');
     });
 
+    Route::livewire('/', 'post.list-all-posts')->name('home');
     Route::livewire('/posts/create', 'post.create-post')->name('post.create');
 });
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
