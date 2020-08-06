@@ -17,4 +17,9 @@ class PostCard extends Component
     {
         $this->post = $post;
     }
+
+    public function show()
+    {
+        return redirect()->route('post.show', $this->post->id);
+    }
 }
