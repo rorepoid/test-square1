@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::livewire('/login', 'login')->name('login');
+Route::group(['layout' => 'layouts.livewire', 'middleware' => 'guest'], function () {
+    Route::livewire('/login', 'login')->name('login');
+});
 
 Route::get('/', function () {
     return view('welcome');
