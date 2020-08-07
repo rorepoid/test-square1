@@ -9,7 +9,7 @@
 
 Create your database and set credentials to .env file
 
-- `php artisan migrate —seed`
+- `php artisan migrate --seed`
 
 - `npm install`
 - `npm run dev`
