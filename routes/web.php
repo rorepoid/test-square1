@@ -19,8 +19,11 @@ Route::group(['layout' => 'layouts.livewire'], function () {
         Route::livewire('/register', 'register')->name('register');
     });
 
+    Route::middleware('auth')->group(function () {
+        Route::livewire('/posts/create', 'post.create-post')->name('post.create');
+        Route::livewire('/posts/my-posts', 'post.owned-posts')->name('post.owned');
+    });
+
     Route::livewire('/', 'post.list-all-posts')->name('home');
-    Route::livewire('/posts/create', 'post.create-post')->name('post.create');
-    Route::livewire('/posts/my-posts', 'post.owned-posts')->name('post.owned');
     Route::livewire('/posts/{id}', 'post.show-post')->name('post.show');
 });
