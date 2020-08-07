@@ -22,7 +22,7 @@
                 @endauth
                 @guest
                 <div class="flex items-center">
-                    <a href="{{ route('login') }}"class="flex flex-row items-center px-3 py-2 ml-4 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline">
+                    <a href="{{ route('login') }}"class="flex flex-row items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline">
                         <span class="mx-2">Log in</span>
                     </a>
                     <a href="{{ route('register') }}"class="flex flex-row items-center px-3 py-2 ml-4 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 hover:no-underline">
