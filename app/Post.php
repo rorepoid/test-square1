@@ -3,6 +3,8 @@
 namespace App;
 
 use App\User;
+use App\Services\Square1;
+use App\Services\BaseService as Service;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,9 +17,10 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public static function insertFromApi(array $posts)
+    public static function insertFromApi(Service $service)
     {
         $new_array = [];
+        $posts = $service->getData();
 
         foreach ($posts as $data) {
             array_push($new_array, [
