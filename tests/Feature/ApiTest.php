@@ -34,16 +34,10 @@ class ApiTest extends TestCase
         $this->createAdmin();
 
         // Act
-        $data = Post::insertFromApi($square1);
-
-        Post::insert($data);
-
-        $posts = Post::select('title', 'user_id', 'body', 'created_at', 'updated_at')
-                    ->get()
-                    ->toArray();
+        $result = Post::insertFromApi($square1);
 
         // Assert
-        $this->assertEquals($data, $posts);
+        $this->assertTrue($result);
     }
 
     public function createAdmin()
