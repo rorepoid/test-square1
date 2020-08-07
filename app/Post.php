@@ -15,6 +15,23 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public static function insertFromApi(array $posts)
+    {
+        $new_array = [];
+
+        foreach ($posts as $data) {
+            array_push($new_array, [
+                'title' => $data['title'],
+                'user_id' => 1,
+                'body' => $data['description'],
+                'created_at' => $data['publication_date'],
+                'updated_at' => $data['publication_date'],
+            ]);
+        }
+
+        return $new_array;
+    }
+
     /**
      * Prepare a date for array / JSON serialization.
      *
