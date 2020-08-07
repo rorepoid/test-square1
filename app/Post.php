@@ -7,6 +7,7 @@ use App\Services\Square1;
 use App\Services\BaseService as Service;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
+use Throwable;
 
 class Post extends Model
 {
@@ -19,20 +20,11 @@ class Post extends Model
 
     public static function insertFromApi(Service $service)
     {
-        $new_array = [];
-        $posts = $service->getData();
-
-        foreach ($posts as $data) {
-            array_push($new_array, [
-                'title' => $data['title'],
-                'user_id' => 1,
-                'body' => $data['description'],
-                'created_at' => $data['publication_date'],
-                'updated_at' => $data['publication_date'],
-            ]);
+        try {
+            return self::insert($service->getDataParsed());
+        } catch (Throwable $th) {
+            return false;
         }
-
-        return $new_array;
     }
 
     /**
