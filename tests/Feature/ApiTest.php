@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Post;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Http;
@@ -21,5 +23,27 @@ class ApiTest extends TestCase
 
         // Assert
         $this->assertTrue($response->ok());
+    }
+
+    /** @test */
+    public function auto_import()
+    {
+        //Arrange
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'secret',
+        ]);
+
+        // Act
+        $data = Post::insertFromApi(Http::get($this->endpoint)['data']);
+
+        Post::insert($data);
+        $posts = Post::select('title', 'user_id', 'body', 'created_at', 'updated_at')
+                    ->get()
+                    ->toArray();
+
+        // Assert
+        $this->assertEquals($data, $posts);
     }
 }
