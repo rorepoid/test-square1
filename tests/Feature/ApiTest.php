@@ -31,21 +31,27 @@ class ApiTest extends TestCase
     {
         //Arrange
         $square1 = new Square1();
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'password' => 'secret',
-        ]);
+        $this->createAdmin();
 
         // Act
         $data = Post::insertFromApi($square1);
 
         Post::insert($data);
+
         $posts = Post::select('title', 'user_id', 'body', 'created_at', 'updated_at')
                     ->get()
                     ->toArray();
 
         // Assert
         $this->assertEquals($data, $posts);
+    }
+
+    public function createAdmin()
+    {
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'secret',
+        ]);
     }
 }
