@@ -18,7 +18,7 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public static function insertFromApi(Service $service)
+    public static function importDataFromApi(Service $service)
     {
         try {
             return self::insert($service->getDataParsed());

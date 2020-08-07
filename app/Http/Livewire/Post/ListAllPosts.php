@@ -26,7 +26,7 @@ class ListAllPosts extends Component
     public function getPosts()
     {
         $this->posts = Cache::remember("post.all.{$this->order_by}", 60, function () {
-            Post::insertFromApi(new Square1);
+            Post::importDataFromApi(new Square1);
             return Post::orderBy('updated_at', $this->order_by)->get();
         });
     }

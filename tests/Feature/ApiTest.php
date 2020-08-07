@@ -34,7 +34,7 @@ class ApiTest extends TestCase
         $this->createAdmin();
 
         // Act
-        $result = Post::insertFromApi($square1);
+        $result = Post::importDataFromApi($square1);
 
         // Assert
         $this->assertTrue($result);
