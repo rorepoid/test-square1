@@ -16,7 +16,7 @@ class Square1 implements BaseService {
 
     public function getData()
     {
-        $this->data = Http::get($this->endpoint)['data'];
+        $this->data = Http::get("{$this->endpoint}/posts")['data'];
 
         return $this->data;
     }
