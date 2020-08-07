@@ -7,11 +7,15 @@
                 <option value="asc">Older</option>
             </select>
         </div>
+            {{ $posts->links('pagination.custom-pagination') }}
+
             <div class="flex justify-center flex-wrap">
                 @foreach($posts as $post)
                     <livewire:post.post-card  :post="$post" :key="$post->id"/>
                 @endforeach
             </div>
+
+            {{ $posts->links('pagination.custom-pagination') }}
         </div>
     </div>
 </div>

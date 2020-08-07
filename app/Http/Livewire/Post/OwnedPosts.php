@@ -6,13 +6,12 @@ use Livewire\Component;
 
 class OwnedPosts extends Component
 {
-    public $posts;
     public $order_by = 'desc';
 
     public function render()
     {
         $this->getPosts();
-        return view('livewire.post.owned-posts');
+        return view('livewire.post.owned-posts', ['posts' => $this->getPosts()]);
     }
 
     public function mount()
@@ -22,9 +21,9 @@ class OwnedPosts extends Component
 
     public function getPosts()
     {
-        $this->posts = auth()->user()
-                            ->posts()
-                            ->orderBy('updated_at', $this->order_by)
-                            ->get();
+        return auth()->user()
+                    ->posts()
+                    ->orderBy('updated_at', $this->order_by)
+                    ->paginate(10);
     }
 }
