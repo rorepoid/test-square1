@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Post;
 use App\User;
+use App\Services\Square1;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Http;
@@ -36,7 +37,7 @@ class ApiTest extends TestCase
         ]);
 
         // Act
-        $data = Post::insertFromApi(Http::get($this->endpoint)['data']);
+        $data = Post::insertFromApi(new Square1());
 
         Post::insert($data);
         $posts = Post::select('title', 'user_id', 'body', 'created_at', 'updated_at')
