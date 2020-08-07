@@ -23,6 +23,7 @@ class Post extends Model
         try {
             return self::insert($service->getDataParsed());
         } catch (Throwable $th) {
+            logger($th->getMessage());
             return false;
         }
     }
