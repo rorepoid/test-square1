@@ -11,7 +11,7 @@ class Square1 implements BaseService {
 
     public function __construct()
     {
-        $this->endpoint = 'https://sq1-api-test.herokuapp.com/posts';
+        $this->endpoint = config('services.square1.endpoint');
     }
 
     public function getData()
