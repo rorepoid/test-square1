@@ -30,6 +30,7 @@ class ApiTest extends TestCase
     public function auto_import()
     {
         //Arrange
+        $square1 = new Square1();
         User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
@@ -37,7 +38,7 @@ class ApiTest extends TestCase
         ]);
 
         // Act
-        $data = Post::insertFromApi(new Square1());
+        $data = Post::insertFromApi($square1);
 
         Post::insert($data);
         $posts = Post::select('title', 'user_id', 'body', 'created_at', 'updated_at')
