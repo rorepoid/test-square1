@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Post;
 
 use App\Post;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class ListAllPosts extends Component
@@ -23,6 +24,8 @@ class ListAllPosts extends Component
 
     public function getPosts()
     {
-        $this->posts = Post::orderBy('updated_at', $this->order_by)->get();
+        $this->posts = Cache::remember("post.all.{$this->order_by}", 60, function () {
+            return Post::orderBy('updated_at', $this->order_by)->get();
+        });
     }
 }

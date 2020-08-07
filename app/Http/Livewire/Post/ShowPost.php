@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Post;
 
 use App\Post;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class ShowPost extends Component
@@ -21,6 +22,8 @@ class ShowPost extends Component
 
     public function getPost($id)
     {
-        $this->post = Post::find($id);
+        $this->post = Cache::remember("post.show.{$id}", now()->addHours(3), function () use ($id) {
+            return Post::find($id);
+        });
     }
 }
